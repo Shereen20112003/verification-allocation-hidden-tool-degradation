@@ -1,0 +1,276 @@
+{
+  "description": "Privacy-reviewed per-request records for a small exploratory hosted-LLM pilot. The prompts and outputs are synthetic arithmetic, data-processing, and coding tasks.",
+  "limitations": "Single exploratory run; not a multi-agent-system evaluation or evidence about deployed systems. Service/model identifiers, session timestamps, local paths, and raw service metadata are intentionally excluded.",
+  "totals": {
+    "requests": 9,
+    "premium_requests": 9,
+    "nanoaiu": 799499500,
+    "input_tokens": 116734,
+    "output_tokens": 1017,
+    "api_duration_ms": 29567,
+    "wall_time_seconds": 167.51476590009406,
+    "baseline_correct": "4/4",
+    "self_check_correct": "4/4",
+    "verifier_confusion": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3
+    }
+  },
+  "records": [
+    {
+      "id": "multiply_baseline",
+      "task": "multiply",
+      "category": "math",
+      "condition": "baseline",
+      "prompt": "Answer the task directly.\nCompute the integer product 17 * 23. Return only JSON: {\"answer\": integer}.",
+      "response": {
+        "answer": 391
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 245560000,
+        "input_tokens": 12224,
+        "output_tokens": 9,
+        "cache_read_tokens": 0,
+        "cache_write_tokens": 0,
+        "api_duration_ms": 2958,
+        "wall_time_seconds": 14.040185699937865
+      }
+    },
+    {
+      "id": "multiply_self_check",
+      "task": "multiply",
+      "category": "math",
+      "condition": "self_check",
+      "prompt": "Solve the task, then independently check your result once; correct it if needed.\nCompute the integer product 17 * 23. Return only JSON: {\"answer\": integer}.",
+      "response": {
+        "answer": 391
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 40376000,
+        "input_tokens": 12244,
+        "output_tokens": 43,
+        "cache_read_tokens": 11648,
+        "cache_write_tokens": 0,
+        "api_duration_ms": 3205,
+        "wall_time_seconds": 13.696646000025794
+      }
+    },
+    {
+      "id": "fixed_point_baseline",
+      "task": "fixed_point",
+      "category": "math",
+      "condition": "baseline",
+      "prompt": "Answer the task directly.\nFor g=0.08 and rho=0.60, compute m=g/(g+rho-g*rho). Return only JSON with keys fraction (reduced string) and decimal (rounded to 8 places).",
+      "response": {
+        "fraction": "10/79",
+        "decimal": 0.12658228
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 70517500,
+        "input_tokens": 13273,
+        "output_tokens": 76,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4645,
+        "api_duration_ms": 3598,
+        "wall_time_seconds": 18.629429200082086
+      }
+    },
+    {
+      "id": "fixed_point_self_check",
+      "task": "fixed_point",
+      "category": "math",
+      "condition": "self_check",
+      "prompt": "Solve the task, then independently check your result once; correct it if needed.\nFor g=0.08 and rho=0.60, compute m=g/(g+rho-g*rho). Return only JSON with keys fraction (reduced string) and decimal (rounded to 8 places).",
+      "response": {
+        "fraction": "10/79",
+        "decimal": 0.12658228
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 72030000,
+        "input_tokens": 13286,
+        "output_tokens": 103,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4658,
+        "api_duration_ms": 4199,
+        "wall_time_seconds": 18.65746759995818
+      }
+    },
+    {
+      "id": "records_baseline",
+      "task": "records",
+      "category": "data",
+      "condition": "baseline",
+      "prompt": "Answer the task directly.\nRecords: [{\"group\":\"A\",\"status\":\"ok\",\"tokens\":12},{\"group\":\"B\",\"status\":\"error\",\"tokens\":5},{\"group\":\"A\",\"status\":\"ok\",\"tokens\":7},{\"group\":\"B\",\"status\":\"ok\",\"tokens\":9},{\"group\":\"A\",\"status\":\"error\",\"tokens\":4}]. Return only JSON: {\"ok_count\": integer, \"ok_token_total\": integer}.",
+      "response": {
+        "ok_count": 3,
+        "ok_token_total": 28
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 69880000,
+        "input_tokens": 13314,
+        "output_tokens": 53,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4686,
+        "api_duration_ms": 2617,
+        "wall_time_seconds": 19.153095900081098
+      }
+    },
+    {
+      "id": "records_self_check",
+      "task": "records",
+      "category": "data",
+      "condition": "self_check",
+      "prompt": "Solve the task, then independently check your result once; correct it if needed.\nRecords: [{\"group\":\"A\",\"status\":\"ok\",\"tokens\":12},{\"group\":\"B\",\"status\":\"error\",\"tokens\":5},{\"group\":\"A\",\"status\":\"ok\",\"tokens\":7},{\"group\":\"B\",\"status\":\"ok\",\"tokens\":9},{\"group\":\"A\",\"status\":\"error\",\"tokens\":4}]. Return only JSON: {\"ok_count\": integer, \"ok_token_total\": integer}.",
+      "response": {
+        "ok_count": 3,
+        "ok_token_total": 28
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "exact expected fields matched"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 70342500,
+        "input_tokens": 13327,
+        "output_tokens": 59,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4699,
+        "api_duration_ms": 2734,
+        "wall_time_seconds": 22.79225990001578
+      }
+    },
+    {
+      "id": "count_runs_baseline",
+      "task": "count_runs",
+      "category": "coding",
+      "condition": "baseline",
+      "prompt": "Answer the task directly.\nWrite Python function count_runs(bits) that returns the number of maximal contiguous runs of 1 in a list containing only 0 and 1. Tests: [] -> 0; [0,1,1,0,1] -> 2; [1,1,1] -> 1; [0,0] -> 0; [1,0,1] -> 2. Return only JSON with one key code, whose value is the Python function source as a JSON string. No markdown.",
+      "response": {
+        "code": "def count_runs(bits):\n    return sum(bit == 1 and (i == 0 or bits[i - 1] == 0) for i, bit in enumerate(bits))"
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "all 5 unit tests passed"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 72330000,
+        "input_tokens": 13342,
+        "output_tokens": 95,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4714,
+        "api_duration_ms": 2858,
+        "wall_time_seconds": 19.740162100060843
+      }
+    },
+    {
+      "id": "count_runs_self_check",
+      "task": "count_runs",
+      "category": "coding",
+      "condition": "self_check",
+      "prompt": "Solve the task, then independently check your result once; correct it if needed.\nWrite Python function count_runs(bits) that returns the number of maximal contiguous runs of 1 in a list containing only 0 and 1. Tests: [] -> 0; [0,1,1,0,1] -> 2; [1,1,1] -> 1; [0,0] -> 0; [1,0,1] -> 2. Return only JSON with one key code, whose value is the Python function source as a JSON string. No markdown.",
+      "response": {
+        "code": "def count_runs(bits):\n    runs = 0\n    in_run = False\n    for bit in bits:\n        if bit == 1 and not in_run:\n            runs += 1\n            in_run = True\n        elif bit == 0:\n            in_run = False\n    return runs"
+      },
+      "evaluation": {
+        "correct": true,
+        "check": "all 5 unit tests passed"
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 79467500,
+        "input_tokens": 13349,
+        "output_tokens": 236,
+        "cache_read_tokens": 8625,
+        "cache_write_tokens": 4721,
+        "api_duration_ms": 3409,
+        "wall_time_seconds": 18.060142099973746
+      }
+    },
+    {
+      "id": "claim_verification",
+      "task": "claim_verification",
+      "category": "arithmetic verification",
+      "condition": "verifier batch",
+      "prompt": "Classify each arithmetic claim as true or false. Do not repair claims. Return only JSON as {\"labels\":{\"C1\":\"true\",...,\"C8\":\"false\"}}.\nC1: 17 * 23 = 391.\nC2: 19 * 27 = 523.\nC3: The sum of integers 1 through 10 is 55.\nC4: The sum of squares 1^2 through 5^2 is 55.\nC5: 2^10 = 2048.\nC6: 2^10 = 1024.\nC7: For g=0.1 and rho=0.5, g/(g+rho-g*rho)=2/11.\nC8: For g=0.1 and rho=0.5, g/(g+rho-g*rho)=1/5.",
+      "response": {
+        "labels": {
+          "C1": "true",
+          "C2": "false",
+          "C3": "true",
+          "C4": "true",
+          "C5": "false",
+          "C6": "true",
+          "C7": "true",
+          "C8": "false"
+        }
+      },
+      "evaluation": {
+        "tp": 5,
+        "fp": 0,
+        "fn": 0,
+        "tn": 3,
+        "precision": 1.0,
+        "recall": 1.0,
+        "labels": {
+          "C1": "true",
+          "C2": "false",
+          "C3": "true",
+          "C4": "true",
+          "C5": "false",
+          "C6": "true",
+          "C7": "true",
+          "C8": "false"
+        },
+        "gold_labels": {
+          "C1": true,
+          "C2": false,
+          "C3": true,
+          "C4": true,
+          "C5": false,
+          "C6": true,
+          "C7": true,
+          "C8": false
+        }
+      },
+      "usage": {
+        "premium_requests": 1,
+        "nanoaiu": 78996000,
+        "input_tokens": 12375,
+        "output_tokens": 343,
+        "cache_read_tokens": 11648,
+        "cache_write_tokens": 0,
+        "api_duration_ms": 3989,
+        "wall_time_seconds": 22.74537739995867
+      }
+    }
+  ]
+}
