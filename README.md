@@ -1,8 +1,10 @@
 # Verification Allocation in Stylized LLM Agent Pipelines under Hidden Tool Degradation
 
-This repository provides reproducible synthetic experiments for a stylized verification-allocation model with hidden tool degradation. The analysis is conditional on the stated model; the experiments are not evaluations of deployed LLM systems.
+Reproducible synthetic experiments for a discrete-time, stylized verification-allocation model with binary inherited corruption and hidden tool degradation. The results are checks of this model. They are not evaluations of deployed language-model systems and do not establish a general mean-field-game theorem.
 
-The associated manuscript and its source files are not included in this repository.
+The analysis concerns serial and multi-role propagation, a finite-population deviation bound under explicit independence assumptions, and verification choices that do not affect future errors or observations. Under the stated restrictions, the optimal choice is myopic. The experiments report where the stated threshold and interval structure hold and where synthetic counterexamples leave those restrictions.
+
+The manuscript source is maintained separately and is not included in this code repository.
 
 ## Reproducing the experiments
 
@@ -24,5 +26,5 @@ The exploratory hosted-LLM pilot records are in `results/e7_pilot_records.json`.
 
 ## Authors
 
-Shereen Anand — Google DeepMind (affiliation during this research); currently at Microsoft Research. This work was conducted independently of Microsoft Research.<br>
-Prakash Chakraborty — Pennsylvania State University
+- Shereen Anand — affiliation during this research: Google DeepMind. Currently at Microsoft Research; this work was conducted independently of Microsoft Research.
+- Prakash Chakraborty — Pennsylvania State University.
